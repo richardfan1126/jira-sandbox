@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jira = "==3.2.0"
+pre-commit = "==2.18.1"
+pylint = "==2.13.7"
+pytest = "==7.1.2"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

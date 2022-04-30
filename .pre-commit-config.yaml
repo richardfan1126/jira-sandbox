@@ -1,0 +1,34 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: check-added-large-files
+- repo: local
+  hooks:
+  - id: pylint
+    name: pylint
+    entry: pipenv run pylint
+    language: system
+    types: [python]
+    args: [-rn, -sn, --disable=C0111]
+- repo: https://github.com/pycqa/isort
+  rev: 5.10.1
+  hooks:
+  - id: isort
+    name: isort (python)
+- repo: local
+  hooks:
+  - id: pytest-check
+    name: pytest-check
+    entry: pipenv run python -m pytest
+    language: system
+    pass_filenames: false
+    always_run: true
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.3.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
